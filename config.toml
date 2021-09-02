@@ -1,0 +1,9 @@
+baseURL = "http://121.37.205.129/"
+languageCode = "en-us"
+title = "低配版程序员的心得"
+theme = "ananke"
+
+DefaultContentLanguage = "zh"
+
+[params]
+    featured_image = "/images/background.jpg"

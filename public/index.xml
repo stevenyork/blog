@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>低配版程序员的心得</title>
+    <link>http://121.37.205.129/</link>
+    <description>Recent content on 低配版程序员的心得</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Aug 2021 20:12:52 +0800</lastBuildDate>
+    
+	<atom:link href="http://121.37.205.129/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redis</title>
+      <link>http://121.37.205.129/posts/redis/</link>
+      <pubDate>Tue, 10 Aug 2021 20:12:52 +0800</pubDate>
+      
+      <guid>http://121.37.205.129/posts/redis/</guid>
+      <description>缓存雪崩  缓存雪崩主要在于定时任务刷新缓存时，批量数据的过期时间一致
+ 缓存雪崩使用随机过期时间或者主动更新缓存结合缓存永不过期
+缓存穿透  缓存穿透主要在于查询不存在的key
+ 缓存穿透使用布隆过滤器来过滤一定不存在的数据
+缓存击穿  缓存击穿主要在于单体数据的过期
+ 缓存击穿使用主动更新缓存结合缓存永不过期
+存储方式 RDB RDB类似快照（copy on write）
+RDB优点：数据恢复速度快；缺点：数据丢失范围较大，会出现短暂性服务不可用
+AOF AOF类似MySQL的bin log
+AOF优点：数据较为齐全、append模式的优点；缺点：文件比RDB的大，占用写的资源，恢复时间比较长
+实践 RDB恢复到具体点，然后通过AOF来恢复到最新时间点
+缓存模式 Cache Aside 更新模式（常用模式） Read/Write Through 更新模式 Write Behind Caching 更新模式</description>
+    </item>
+    
+    <item>
+      <title>高性能MySQL</title>
+      <link>http://121.37.205.129/posts/%E9%AB%98%E6%80%A7%E8%83%BDmysql/</link>
+      <pubDate>Tue, 10 Aug 2021 18:12:52 +0800</pubDate>
+      
+      <guid>http://121.37.205.129/posts/%E9%AB%98%E6%80%A7%E8%83%BDmysql/</guid>
+      <description>MySQL事务隔离性  Read uncommitted（未提交读）  脏读、不可重复读、幻读
+  Read committed（已提交读）  不可重复读、幻读
+  Repeatable read（可重复读）  幻读
+  Serializable（可串行化） 悲观锁 乐观锁（MVVC 多版本并存）  选择优化的数据类型  简单原则
+  更小通常更好 简单就好，整型比字符串操作代价低  MySQL内建类型存储日期和时间，而不是字符串 整型存储IP地址   尽量避免NULL  高性能的索引策略 独立的列：不能是表达式的一部分，不能是函数的参数
+前缀索引：列的部分数据作为索引 索引选择性：不重复的索引值和总记录数的比值 前缀索引结合索引选择性的值来确定前缀长度
+聚簇索引优点：
+ 相关数据同区域化 数据访问更快，索引和数据保存在同一个B-Tree 覆盖索引扫描的查询直接使用叶节点中的主键值 聚簇索引缺点： 提高I/O密集型的性能。如果内存存放数据，访问顺序就不那么重要 插入速度严重依赖插入顺序 更新聚簇索引列的代价很高 页分裂 全表扫描，行比较稀疏 二级索引数据更大 二级索引访问需要两次索引查找（自适应哈希索引会减少这样重复的工作）  顺序主键的问题：1.间隙锁竞争 2.AUTO_INCREMENT锁机制
+多版本并发控制 (MVCC) 间隙锁 (next-key locking) 聚簇索引 二级索引（非主键索引） </description>
+    </item>
+    
+    <item>
+      <title>Http Request</title>
+      <link>http://121.37.205.129/posts/httprequest/</link>
+      <pubDate>Tue, 10 Aug 2021 16:12:52 +0800</pubDate>
+      
+      <guid>http://121.37.205.129/posts/httprequest/</guid>
+      <description>Spring4 RestTemplate - JDK (Default) - Apache Http Components (连接池) - OkHttp (Android常用)
+Spring5 WebClient - WebFlux - 反应式
+Java 11 HttpClient - HTTP/2 - 同步、异步 - 连接池（暂时不知道如何进行配置）
+抉择 Spring5以下版本，直接选择Apache Http Components OR RestTemplate + Apache Http Components</description>
+    </item>
+    
+    <item>
+      <title>ORM</title>
+      <link>http://121.37.205.129/posts/orm/</link>
+      <pubDate>Tue, 10 Aug 2021 10:12:52 +0800</pubDate>
+      
+      <guid>http://121.37.205.129/posts/orm/</guid>
+      <description>Spring Data JPA  DDD、QueryDSL
+ QueryDSL：类型安全，扩展复杂查询
+DDD：领域模型
+Mybatis 抉择 先入手DDD设计，深入研究JPA搭配DDD的效果，已经DDD设计和现有设计进行对比，使得后续项目选择打下基础</description>
+    </item>
+    
+  </channel>
+</rss>
